@@ -1,13 +1,358 @@
 :root {
---primary-color: #4F46E5;
---secondary-color: #10B981;
---dark-bg: #1F2937;
---font-main: 'Poppins', sans-serif;
+  --primary:   #B00000;
+  --secondary: #EDAE49;
+  --dark:      #4A1942;
+  --accent:    #7798AB;
+  --light:     #FFFBFF;
+  --dark2:     #310f2b;
+  --font-display: 'Fraunces', serif;
+  --font-body:    'Outfit', sans-serif;
+}
+ 
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
+html { scroll-behavior: smooth; }
+
 body {
-font-family: var(--font-main);
-margin: 0;
-padding: 0;
-box-sizing: border-box;
+  font-family: var(--font-body);
+  background: #ffffff;
+  color: var(--dark);
+  line-height: 1.6;
+}
+
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+
+.header {
+  background: var(--dark);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar {
+  max-width: 1150px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.logo img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid var(--secondary);
+}
+
+.logo h2 {
+  font-family: var(--font-display);
+  color: var(--secondary);
+  font-size: 1.4rem;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: rgba(255,251,255,0.7);
+  font-size: 0.9rem;
+  position: relative;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  background: var(--secondary);
+  left: 0;
+  bottom: -4px;
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  color: var(--secondary);
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.btn-nav {
+  text-decoration: none;
+  background: var(--primary);
+  color: var(--light);
+  padding: 0.6rem 1.5rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.btn-nav:hover {
+  background: #8a0000;
+  transform: translateY(-2px);
+}
+
+
+body > .container:first-of-type {
+  max-width: 100%;
+  background: linear-gradient(135deg, var(--dark), var(--dark2));
+  padding: 6rem 2rem 5rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+body > .container:first-of-type h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  color: var(--light);
+  margin-bottom: 1.2rem;
+  animation: fadeUp 0.8s ease both;
+}
+
+body > .container:first-of-type .descripcion {
+  color: rgba(255,251,255,0.6);
+  max-width: 600px;
+  margin: 0 auto;
+  font-size: 1rem;
+  animation: fadeUp 0.8s ease 0.1s both;
+}
+
+
+
+
+
+
+
+.receta-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;    
+  justify-content: center; 
+  width: 100%;            
+  max-width: 00px;      
+  margin: 2rem auto;      
+  padding: 0 1rem;
+  box-sizing: border-box;
+}
+
+
+.receta {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 1rem 2.25rem;
+  background: #ffffff;
+  border-left: 20px solid var(--secondary);
+  border-bottom: 40px solid rgba(74,25,66,0.07);
+  animation: fadeUp 0.5s ease both;
+  border-radius: 6%;
+}
+.receta:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+}
+
+
+.receta h2 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--dark);
+}
+
+.receta p {
+  font-size: 0.9rem;
+  margin-bottom: 0.8rem;
+  line-height: 1.6;
+  color: #5a4558;
+}
+
+.receta p strong {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+
+.contact-section {
+  background: linear-gradient(135deg, var(--dark), var(--dark2));
+  padding: 6rem 2rem;
+  color: var(--light);
+}
+
+.contact-section h2 {
+  font-family: var(--font-display);
+  color: var(--secondary);
+  text-align: center;
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 0.5rem;
+}
+
+.contact-section > .container > p {
+  text-align: center;
+  opacity: 0.6;
+  margin-bottom: 3rem;
+}
+
+.contact-wrapper {
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
+  padding: 3rem;
+  border-radius: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: 3rem;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+  background: rgba(255,251,255,0.08);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 8px;
+  padding: 0.9rem;
+  color: var(--light);
+  font-family: var(--font-body);
+}
+
+.btn-submit {
+  background: var(--primary);
+  color: var(--light);
+  border: none;
+  border-radius: 8px;
+  padding: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-submit:hover {
+  background: #8a0000;
+  transform: translateY(-2px);
+}
+
+
+
+.main-footer {
+  background: var(--dark2);
+  color: rgba(255,251,255,0.6);
+  padding: 4rem 2rem 1rem;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 3rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid rgba(237,174,73,0.2);
+}
+
+.footer-brand h3 {
+  font-family: var(--font-display);
+  color: var(--secondary);
+  margin-bottom: 0.5rem;
+}
+
+.footer-links h4,
+.footer-newsletter h4 {
+  color: var(--secondary);
+  margin-bottom: 1rem;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.footer-links ul {
+  list-style: none;
+}
+
+.footer-links ul li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-links ul li a {
+  text-decoration: none;
+  color: rgba(255,251,255,0.5);
+  transition: 0.2s;
+}
+
+.footer-links ul li a:hover {
+  color: var(--secondary);
+}
+
+.newsletter-form {
+  display: flex;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.newsletter-form input {
+  flex: 1;
+  padding: 0.7rem;
+  border: none;
+  outline: none;
+}
+
+.newsletter-form button {
+  background: var(--secondary);
+  color: var(--dark2);
+  border: none;
+  padding: 0 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding: 1rem 0;
+  font-size: 0.8rem;
+  opacity: 0.4;
+}
+
+
+
+@media (max-width: 768px) {
+
+  .nav-links {
+    display: none;
+  }
+
+  .contact-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .receta-wrapper {
+    padding: 0 1rem;
+  }
+
 }
